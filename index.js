@@ -1,8 +1,12 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
+const cors = require('cors')
 const schema = require('./src/schema');
 
 const app = express()
+
+// Allow cross-origin
+app.use(cors())
 
 app.use('/graphql', graphqlHTTP({
     schema,
@@ -11,4 +15,4 @@ app.use('/graphql', graphqlHTTP({
 
 const PORT = process.env.PORT || 4000
 
-app.listen(PORT, () => console.log(`Litening to port${PORT}`));
+app.listen(PORT, () => console.log(`Litening on port ${PORT}`));

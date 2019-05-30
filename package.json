@@ -4,12 +4,17 @@
   "description": "simple app to lists spacex launch mission",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "cd frontend && yarn start",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\" "
   },
   "author": "asad",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-graphql": "^0.8.0",
     "graphql": "^14.3.0"
